@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca" id="exe-node-20260121123704276W0J">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>Bloc 2. Llibreria Dodo | Robòtica amb micropython</title>
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"> </script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css">
+<script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+</head>
+<body class="exe-export exe-web-site" lang="ca">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <nav id="siteNav"> <ul> <li> <a href="../index.html" class="main-node daddy">Bloc 0. Presentació del projecte</a><ul class="other-section"> <li> <a href="../html/0-1-objectius.html" class="no-ch">0.1. Objectius</a>
+</li>
+<li> <a href="../html/0-2-organitzacio-i-metodologia.html" class="no-ch">0.2 Organització i metodologia</a>
+</li>
+<li> <a href="../html/0-3-avaluacio.html" class="no-ch">0.3. Avaluació</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-1-material-software-i-entorn.html" class="daddy">Bloc 1. Material, software i entorn</a><ul class="other-section"> <li> <a href="../html/1-1-el-robot-dodo.html" class="no-ch">1.1. El robot DODO</a>
+</li>
+<li> <a href="../html/1-2-micropython.html" class="no-ch">1.2. Micropython</a>
+</li>
+<li> <a href="../html/1-3-el-nostre-primer-programa.html" class="no-ch">1.3. El nostre primer programa</a>
+</li>
+</ul>
+</li>
+<li class="active"> <a href="../html/bloc-2-llibreria-dodo.html" class="active no-ch">Bloc 2. Llibreria Dodo</a>
+</li>
+<li> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" class="no-ch">Bloc 3. Sensors i actuadors (Mètodes)</a>
+</li>
+<li> <a href="../html/bloc-4-introduccio-als-metodes.html" class="no-ch">Bloc 4. Introducció als mètodes</a>
+</li>
+<li> <a href="../html/bloc-5-reptes.html" class="no-ch">Bloc 5. Reptes</a>
+</li>
+</ul></nav><main id="20260121123704276W0J" class="page"> <header id="header-20260121123704276W0J" class="main-header"> <div class="package-header"><h1 class="package-title">Robòtica amb micropython</h1></div>
+<div class="page-header"><h2 class="page-title">Bloc 2. Llibreria Dodo</h2></div></header><div id="page-content-20260121123704276W0J" class="page-content"> <article id="202601221414016974KW" class="box"> <header class="box-head no-icon"> <h1 class="box-title">Les llibreries en Python</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260122141401684H9E" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>En programació, una llibreria és un conjunt de codi ja escrit que agrupa funcions, classes i mètodes pensats per resoldre un tipus de problema concret. En lloc d’escriure tot el codi des de zero cada vegada, les llibreries permeten reutilitzar solucions, simplificar el desenvolupament de programes i fer el codi més clar i mantenible.</p>
+<p>En Python, una llibreria pot contenir des de funcions molt senzilles fins a estructures complexes. Aquestes llibreries es poden importar dins d’un programa i utilitzar només allò que es necessita. D’aquesta manera, el programador pot centrar-se en la lògica del problema que vol resoldre, sense haver de preocupar-se pels detalls interns de la implementació.</p>
+<p>Les llibreries es generen a partir de la necessitat d’organitzar el codi i abstraure funcionalitats. Quan un conjunt de funcions o classes resolen una mateixa tasca —per exemple, controlar un tipus de maquinari— és habitual agrupar-les en una llibreria. Aquesta abstracció permet separar el què volem fer del com es fa realment, facilitant tant l’ús com el manteniment del codi.</p>
+<p>En l’àmbit de la robòtica i dels microcontroladors, les llibreries tenen una importància clau. Permeten controlar sensors i actuadors mitjançant instruccions d’alt nivell, amagant la complexitat del control directe del maquinari. Això fa possible escriure programes més llegibles, segurs i eficients.</p><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article><article id="2026012214150309215P" class="box"> <header class="box-head no-icon"> <h1 class="box-title">La llibreria dodo</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260122141503088UUJ" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>En aquest projecte utilitzarem la llibreria dodo, una llibreria desenvolupada específicament per al robot DODO. Aquesta llibreria actua com a pont entre el programa escrit en MicroPython i el maquinari del robot. Gràcies a dodo, no cal controlar directament els pins de la placa ni gestionar senyals de baix nivell; en lloc d’això, podem utilitzar mètodes senzills per moure motors, llegir sensors o mostrar informació en pantalla.</p>
+<p>En els apartats següents s’explicarà amb detall com s’utilitza la llibreria dodo, quins mètodes proporciona i com aplicar-los en programes reals per controlar el comportament del robot.</p>
+<p>Ara bé, abans hem d'instal·lar la llibreria a Thonny. A partir del minut 4 d'aquest vídeo es donen les instruccions per instal·lar aquesta llibreria.</p>
+<p><iframe width="1200" height="600" src="https://www.youtube.com/embed/h6X4UbmJ3W4?embeds_referring_euri=https" allowfullscreen="allowfullscreen"></iframe></p>
+<p><a href="https://drive.google.com/drive/folders/1fMTkONbIi5RcXTk8uJVniciOyKcR3s2y?dmr=1&amp;ec=wgc-drive-globalnav-goto" target="_blank" id="link_0" rel="noopener">Documentació: LlibreriaDodo.py</a></p><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article>
+</div></main><div class="nav-buttons"> <a href="../html/1-3-el-nostre-primer-programa.html" title="Anterior" class="nav-button nav-button-left"> <span>Anterior</span></a><a href="../html/bloc-3-sensors-i-actuadors-metodes.html" title="Següent" class="nav-button nav-button-right"> <span>Següent</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>

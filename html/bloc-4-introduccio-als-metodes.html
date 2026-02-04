@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ca" id="exe-node-20260203091415172Y2M">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>Bloc 4. Introducció als mètodes | Robòtica amb micropython</title>
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"> </script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css">
+<script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+</head>
+<body class="exe-export exe-web-site" lang="ca">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <nav id="siteNav"> <ul> <li> <a href="../index.html" class="main-node daddy">Bloc 0. Presentació del projecte</a><ul class="other-section"> <li> <a href="../html/0-1-objectius.html" class="no-ch">0.1. Objectius</a>
+</li>
+<li> <a href="../html/0-2-organitzacio-i-metodologia.html" class="no-ch">0.2 Organització i metodologia</a>
+</li>
+<li> <a href="../html/0-3-avaluacio.html" class="no-ch">0.3. Avaluació</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-1-material-software-i-entorn.html" class="daddy">Bloc 1. Material, software i entorn</a><ul class="other-section"> <li> <a href="../html/1-1-el-robot-dodo.html" class="no-ch">1.1. El robot DODO</a>
+</li>
+<li> <a href="../html/1-2-micropython.html" class="no-ch">1.2. Micropython</a>
+</li>
+<li> <a href="../html/1-3-el-nostre-primer-programa.html" class="no-ch">1.3. El nostre primer programa</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-2-llibreria-dodo.html" class="no-ch">Bloc 2. Llibreria Dodo</a>
+</li>
+<li> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" class="no-ch">Bloc 3. Sensors i actuadors (Mètodes)</a>
+</li>
+<li class="active"> <a href="../html/bloc-4-introduccio-als-metodes.html" class="active no-ch">Bloc 4. Introducció als mètodes</a>
+</li>
+<li> <a href="../html/bloc-5-reptes.html" class="no-ch">Bloc 5. Reptes</a>
+</li>
+</ul></nav><main id="20260203091415172Y2M" class="page"> <header id="header-20260203091415172Y2M" class="main-header"> <div class="package-header"><h1 class="package-title">Robòtica amb micropython</h1></div>
+<div class="page-header"><h2 class="page-title">Bloc 4. Introducció als mètodes</h2></div></header><div id="page-content-20260203091415172Y2M" class="page-content"> <article id="202602030915168035OH" class="box"> <header class="box-head no-icon"> <h1 class="box-title">Exercicis Sensors i Actuadors (Mètodes)</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260203091516800SC4" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><style>
+/* Estil coherent amb el “look & feel” anterior (tipografia system, caixes clares, codi monoespaiat) */
+.dodo-section{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+  color:#111;
+}
+.dodo-section h1,.dodo-section h2,.dodo-section h3{ margin:1.05em 0 0.45em; }
+.dodo-section p{ margin:0.6em 0; }
+.dodo-section ul, .dodo-section ol{ margin:0.35em 0 0.85em 1.25em; }
+.dodo-section code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:0.95em;
+  background:#f6f6f6;
+  padding:0.08em 0.35em;
+  border-radius:5px;
+}
+.dodo-box{
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+  padding:0.9em 1em;
+  margin:1em 0 1.2em;
+}
+.dodo-toc{
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+  padding:0.9em 1em;
+  margin:1em 0 1.3em;
+}
+.dodo-toc ul{ margin:0.3em 0 0 1.2em; }
+.dodo-toc li{ margin:0.25em 0; }
+.dodo-toc a{ text-decoration:none; }
+.dodo-toc a:hover{ text-decoration:underline; }
+
+.dodo-ex{
+  border:1px solid #ddd;
+  border-radius:14px;
+  background:#fff;
+  padding:1em 1.1em;
+  margin:1.2em 0;
+}
+.dodo-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5em 0.9em;
+  margin:0.35em 0 0.85em;
+  font-size:0.95em;
+}
+.dodo-tag{
+  display:inline-block;
+  background:#f6f6f6;
+  border:1px solid #e2e2e2;
+  padding:0.15em 0.6em;
+  border-radius:999px;
+}
+.dodo-subbox{
+  border:1px solid #e1e1e1;
+  border-radius:10px;
+  background:#fafafa;
+  padding:0.75em 0.9em;
+  margin:0.85em 0;
+}
+.dodo-subbox strong{ display:block; margin-bottom:0.25em; }
+</style>
+<div class="dodo-section">
+<p>Aquests exercicis t’ajudaran a dominar els actuadors i sensors més habituals del robot, així com els mètodes bàsics de la classe <code>dodo</code>. L’objectiu és que puguis construir programes simples però correctes, preparant-te per a reptes més complexos.</p>
+<div class="dodo-box">
+<h3>Entrega dels exercicis</h3>
+<ul>
+<li>El professor compartirà una <strong>carpeta de Google Drive</strong> per a l’entrega.</li>
+<li>Per a cada exercici has de pujar:
+<ul>
+<li>Un <strong>vídeo curt</strong> on es vegi clarament el comportament del robot.</li>
+<li>L’arxiu de <strong>Thonny</strong> amb el codi (<code>.py</code>).</li>
+</ul>
+</li>
+<li>Posa un nom clar als fitxers (per exemple: <code>Ex4_SeqLEDs.mp4</code> i <code>Ex4_SeqLEDs.py</code>).</li>
+</ul>
+</div>
+<nav class="dodo-toc" aria-label="Índex d’exercicis"><strong>Índex</strong>
+<ul>
+<li><a href="#ex1">Exercici 1 — Hello World a la pantalla OLED</a></li>
+<li><a href="#ex2">Exercici 2 — Encendre i apagar un LED del robot</a></li>
+<li><a href="#ex3">Exercici 3 — Encendre diversos LEDs del robot</a></li>
+<li><a href="#ex4">Exercici 4 — Seqüència de LEDs amb retard</a></li>
+<li><a href="#ex41">Exercici 4.1 — LEDs d’un en un (encendre, apagar i passar al següent)</a></li>
+<li><a href="#ex42">Exercici 4.2 — Seqüència contínua de LEDs amb <code>while</code></a></li>
+<li><a href="#ex5">Exercici 5 — Mesurar distància amb el sensor d’ultrasons</a></li>
+<li><a href="#ex51">Exercici 5.1 — Distància amb indicador visual (LED)</a></li>
+<li><a href="#ex52">Exercici 5.2 — Distància amb indicador visual i sonor</a></li>
+<li><a href="#ex6">Exercici 6 — Moviments bàsics dels motors</a></li>
+<li><a href="#ex60">Exercici 6.0 — Moure el robot en línia recta</a></li>
+<li><a href="#ex61">Exercici 6.1 — Avançar i aturar-se a una distància determinada</a></li>
+<li><a href="#ex62">Exercici 6.2 — Avançar, girar esquerra/dreta i tornar a anar recte</a></li>
+</ul>
+</nav><!-- EX 1 -->
+<section class="dodo-ex" id="ex1">
+<h2>Exercici 1 — Hello World a la pantalla OLED</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> mostrar un missatge a la pantalla del robot</span> <span class="dodo-tag"><strong>Actuadors:</strong> OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>(mètode OLED del teu DODO)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> cap</span></div>
+<p>En aquest primer exercici aprendràs a comunicar-te amb el robot mostrant un missatge de text a la pantalla OLED. Aquest serà el teu primer contacte amb el procés d’inicialització i amb l’enviament d’informació a una sortida física.</p>
+<p>El programa ha de mostrar un missatge (per exemple “Hello World”) i col·locar-lo aproximadament al centre de la pantalla perquè sigui clarament visible.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Mostra un missatge de text a la OLED (centrat aproximadament).</li>
+<li>El programa ha de finalitzar després de mostrar el missatge.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No utilitzis bucles (<code>while</code>, <code>for</code>) en aquest exercici.</li>
+<li>No executis moviments de motors.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 2 -->
+<section class="dodo-ex" id="ex2">
+<h2>Exercici 2 — Encendre i apagar un LED del robot</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> controlar un actuador amb temporització bàsica</span> <span class="dodo-tag"><strong>Actuadors:</strong> LED RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>En aquest exercici aprendràs a controlar un actuador bàsic: els LEDs. Has d’encendre un LED amb un color determinat, esperar uns segons i apagar-lo, de manera que el canvi sigui clarament visible.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Encén un LED (tria una posició i un color RGB).</li>
+<li>Espera un interval de temps amb <code>sleep()</code>.</li>
+<li>Apaga el mateix LED.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No facis servir sensors en aquest exercici.</li>
+<li>No incloguis moviments de motors.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 3 -->
+<section class="dodo-ex" id="ex3">
+<h2>Exercici 3 — Encendre diversos LEDs del robot</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> controlar múltiples actuadors de forma independent</span> <span class="dodo-tag"><strong>Actuadors:</strong> LEDs RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> cap</span></div>
+<p>El robot disposa de diversos LEDs. En aquest exercici has d’encendre diferents LEDs assignant un color diferent a cadascun, demostrant que cada posició es pot controlar de manera independent mitjançant el seu índex.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Encén com a mínim 3 LEDs diferents (posicions diferents).</li>
+<li>Assigna un color diferent a cada LED.</li>
+<li>No cal apagar els LEDs al final; l’objectiu és veure el resultat.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No utilitzis bucles ni temporitzacions en aquesta versió.</li>
+<li>No incloguis motors ni sensors.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 4 -->
+<section class="dodo-ex" id="ex4">
+<h2>Exercici 4 — Seqüència de LEDs amb retard</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> crear una seqüència visual amb control del temps</span> <span class="dodo-tag"><strong>Actuadors:</strong> LEDs RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>A diferència de l’exercici 3, ara els LEDs no s’encendran tots al mateix temps. Has de crear una seqüència on s’encenguin un darrere l’altre, afegint un retard entre cada acció perquè l’efecte sigui clarament visible.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Encén diversos LEDs en ordre (per exemple 1→2→3→4→5), amb un <code>sleep()</code> entre enceses.</li>
+<li>La seqüència s’ha d’executar una sola vegada.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No utilitzis un bucle infinit en aquest exercici.</li>
+<li>No incloguis motors ni sensors.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 4.1 -->
+<section class="dodo-ex" id="ex41">
+<h2>Exercici 4.1 — Encendre LEDs d’un en un (encendre, apagar i passar al següent)</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> seqüenciar accions d’encesa i apagada amb temporització</span> <span class="dodo-tag"><strong>Actuadors:</strong> LEDs RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>En aquesta variació, només pot haver-hi un LED encès cada vegada. Has d’encendre un LED, esperar uns segons, apagar-lo i passar al següent, repetint el procés fins haver recorregut tots els LEDs una vegada.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>En cada pas: encén un LED, espera, apaga’l.</li>
+<li>Repeteix el patró per a diversos LEDs (idealment tots).</li>
+<li>Executa la seqüència una sola vegada.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>Evita un bucle infinit en aquesta versió.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 4.2 -->
+<section class="dodo-ex" id="ex42">
+<h2>Exercici 4.2 — Seqüència contínua de LEDs amb <code>while</code></h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> crear un comportament repetitiu amb bucle infinit</span> <span class="dodo-tag"><strong>Actuadors:</strong> LEDs RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code></span> <span class="dodo-tag"><strong>Estructures:</strong> <code>while True</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Ara la seqüència s’ha de repetir contínuament. En acabar l’últim LED, el programa ha de tornar a començar des del primer sense que l’usuari hagi d’executar el programa de nou.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Utilitza <code>while True</code> per repetir la seqüència indefinidament.</li>
+<li>Per a cada LED: encén, espera, apaga i passa al següent.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>El vídeo d’entrega ha de mostrar com la seqüència es repeteix (almenys dues voltes completes).</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 5 -->
+<section class="dodo-ex" id="ex5">
+<h2>Exercici 5 — Mesurar distància amb el sensor d’ultrasons</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> llegir una magnitud física i mostrar-la</span> <span class="dodo-tag"><strong>Actuadors:</strong> OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>(mètode d’ultrasons del teu DODO)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> opcional <code>utime</code> (per refresc)</span></div>
+<p>En aquest exercici has d’utilitzar el sensor d’ultrasons per mesurar la distància fins a un objecte situat al davant. Has de mostrar aquesta distància a la pantalla OLED en temps real, de manera que es vegi com canvia quan apropes o allunyes un objecte del sensor.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Llegeix la distància de forma repetida i actualitza la OLED.</li>
+<li>El valor ha de ser llegible (per exemple, mostrant “Distància: XX cm”).</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No cal moure motors en aquest exercici.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 5.1 -->
+<section class="dodo-ex" id="ex51">
+<h2>Exercici 5.1 — Distància amb indicador visual (LED)</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> prendre decisions segons un llindar de distància</span> <span class="dodo-tag"><strong>Actuadors:</strong> LED RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code>, <code>(mètode d’ultrasons)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> opcional <code>utime</code></span></div>
+<p>Amplia l’exercici 5 afegint un indicador visual. El robot ha de mesurar la distància i encendre un LED verd quan la distància sigui segura i un LED vermell quan l’objecte estigui massa a prop.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Defineix un llindar (per exemple 15 cm) i comprova’l de forma contínua.</li>
+<li>Mostra clarament el canvi de color quan superes o baixes del llindar.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No cal mostrar la distància a la OLED si no ho vols; la sortida principal és el LED.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 5.2 -->
+<section class="dodo-ex" id="ex52">
+<h2>Exercici 5.2 — Distància amb indicador visual i sonor</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> combinar sortides (llum i so) per indicar estat</span> <span class="dodo-tag"><strong>Actuadors:</strong> LED RGB, buzzer</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code>, <code>enciende_buzzer(frecuencia)</code>, <code>apaga_buzzer()</code>, <code>(mètode d’ultrasons)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> opcional <code>utime</code></span></div>
+<p>Afegeix un avís sonor al comportament de l’exercici 5.1. Quan la distància sigui inferior al llindar, el robot ha de posar el LED en vermell i activar el buzzer. Quan la distància torni a ser segura, el buzzer s’ha d’aturar.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Defineix un llindar i aplica el mateix criteri per a LED i buzzer.</li>
+<li>El so ha de ser clarament audible al vídeo d’entrega.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>Evita deixar el buzzer encès quan la distància és segura.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 6 -->
+<section class="dodo-ex" id="ex6">
+<h2>Exercici 6 — Moviments bàsics dels motors (endavant, enrere, gir i aturar)</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> entendre el control de moviment amb motors</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>En aquest exercici has d’executar una seqüència curta de moviments per comprovar que controles el robot: avançar, retrocedir, girar i aturar-se. Cada moviment ha de durar un temps determinat i després passar al següent.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Programa una seqüència amb com a mínim: avançar, enrere, girar (esquerra o dreta) i aturar.</li>
+<li>Entre moviments, utilitza pauses amb <code>sleep()</code> perquè es vegi clarament el canvi.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No cal usar sensors en aquest exercici.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 6.0 -->
+<section class="dodo-ex" id="ex60">
+<h2>Exercici 6.0 — Moure el robot en línia recta</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> moviment recte amb velocitat igual als dos motors</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Fes avançar el robot en línia recta durant uns segons i després atura’l. L’objectiu és practicar el control simultani dels dos motors amb la mateixa velocitat i comprovar la relació entre velocitat i temps de moviment.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Activa els dos motors amb la mateixa velocitat.</li>
+<li>Després d’uns segons, atura el moviment.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 6.1 -->
+<section class="dodo-ex" id="ex61">
+<h2>Exercici 6.1 — Avançar i aturar-se quan estigui a una distància determinada d’una paret</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> combinar motors i sensor per prendre una decisió</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(mètode d’ultrasons)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> opcional <code>utime</code></span></div>
+<p>El robot ha d’avançar en línia recta mentre mesura contínuament la distància fins a una paret. Quan la distància sigui menor que un valor límit (per exemple 15 cm), el robot s’ha d’aturar automàticament.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Defineix un llindar de seguretat (p. ex. 15 cm).</li>
+<li>Mesura la distància de forma repetida mentre el robot avança.</li>
+<li>Quan la distància baixa del llindar, atura els motors.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>El vídeo ha de mostrar clarament que el robot s’atura abans de tocar la paret.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+<!-- EX 6.2 -->
+<section class="dodo-ex" id="ex62">
+<h2>Exercici 6.2 — Avançar, girar a esquerra i dreta i tornar a anar recte</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> estructurar una seqüència de moviments amb girs</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Crea una seqüència de moviment més completa: el robot ha d’avançar recte, girar a l’esquerra durant un temps determinat, tornar a avançar recte, girar a la dreta i finalment tornar a avançar recte. L’objectiu és practicar com es poden aconseguir girs variant la velocitat relativa entre motors i com estructurar una seqüència amb pauses controlades.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Inclou com a mínim aquests trams: recte → gir esquerra → recte → gir dreta → recte.</li>
+<li>Utilitza <code>sleep()</code> per fixar la durada de cada tram.</li>
+<li>Atura el robot al final de la seqüència.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Restriccions</strong>
+<ul>
+<li>No utilitzis sensors en aquest exercici.</li>
+</ul>
+</div>
+<p><a href="#Exercicis-DODO">Torna a l’índex</a></p>
+</section>
+</div><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article>
+</div></main><div class="nav-buttons"> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" title="Anterior" class="nav-button nav-button-left"> <span>Anterior</span></a><a href="../html/bloc-5-reptes.html" title="Següent" class="nav-button nav-button-right"> <span>Següent</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>

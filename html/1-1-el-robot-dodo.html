@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ca" id="exe-node-20260121124255804S7E">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>1.1. El robot DODO | Robòtica amb micropython</title>
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"> </script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css">
+<script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+</head>
+<body class="exe-export exe-web-site" lang="ca">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <nav id="siteNav"> <ul> <li> <a href="../index.html" class="main-node daddy">Bloc 0. Presentació del projecte</a><ul class="other-section"> <li> <a href="../html/0-1-objectius.html" class="no-ch">0.1. Objectius</a>
+</li>
+<li> <a href="../html/0-2-organitzacio-i-metodologia.html" class="no-ch">0.2 Organització i metodologia</a>
+</li>
+<li> <a href="../html/0-3-avaluacio.html" class="no-ch">0.3. Avaluació</a>
+</li>
+</ul>
+</li>
+<li class="current-page-parent"> <a href="../html/bloc-1-material-software-i-entorn.html" class="daddy">Bloc 1. Material, software i entorn</a><ul> <li class="active"> <a href="../html/1-1-el-robot-dodo.html" class="active no-ch">1.1. El robot DODO</a>
+</li>
+<li> <a href="../html/1-2-micropython.html" class="no-ch">1.2. Micropython</a>
+</li>
+<li> <a href="../html/1-3-el-nostre-primer-programa.html" class="no-ch">1.3. El nostre primer programa</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-2-llibreria-dodo.html" class="no-ch">Bloc 2. Llibreria Dodo</a>
+</li>
+<li> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" class="no-ch">Bloc 3. Sensors i actuadors (Mètodes)</a>
+</li>
+<li> <a href="../html/bloc-4-introduccio-als-metodes.html" class="no-ch">Bloc 4. Introducció als mètodes</a>
+</li>
+<li> <a href="../html/bloc-5-reptes.html" class="no-ch">Bloc 5. Reptes</a>
+</li>
+</ul></nav><main id="20260121124255804S7E" class="page"> <header id="header-20260121124255804S7E" class="main-header"> <div class="package-header"><h1 class="package-title">Robòtica amb micropython</h1></div>
+<div class="page-header"><h2 class="page-title">1.1. El robot DODO</h2></div></header><div id="page-content-20260121124255804S7E" class="page-content"> <article id="20260122121313902UA7" class="box"> <header class="box-head no-icon"> <h1 class="box-title">El robot DODO: components i funcionament general</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260122121313897SJU" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>El robot DODO és un robot educatiu dissenyat per facilitar l’aprenentatge de la robòtica i la programació aplicada. Es tracta d’un sistema complet que integra maquinari i programari, i que permet controlar motors, sensors i actuadors mitjançant codi escrit en MicroPython.&nbsp;</p>
+<p><br></p>
+<p><img src="../content/resources/20260122121313897SJU/Dodo_Lite_Robot_10.png" title="Contenidor Robot DODO" width="1200" height="665" alt="Contenidor Robot DODO"></p>
+<p>El robot està format per diversos blocs principals: una placa de control, una placa d’expansió (shield), diferents sensors, diversos actuadors i els elements mecànics que permeten el moviment.&nbsp;</p>
+<p><img src="../content/resources/20260122121313897SJU/Dodo_Lite_v1_2_01_1.jpg" title="Components del Kit" width="1200" height="919" alt="Components del Kit"><br><strong></strong></p>
+<p><strong>Components del robot DODO</strong></p>
+<ul>
+<li>Un xassís metàl·lic</li>
+<li>Una roda boja</li>
+<li>Dos motors de 140 rpm a 6 V</li>
+<li>Dues rodes motrius de 65 mm de diàmetre</li>
+<li>Una placa Dodo Lite</li>
+<li>Una placa controladora Raspberry Pi Pico</li>
+<li>Un display OLED gràfic de 128 × 64 píxels</li>
+<li>Un driver de control de motors DRV8833</li>
+<li>Un mòdul seguidor de línia de tres elements actius (Bilby)</li>
+<li>Un mòdul mesurador de distància per ultrasons (Bilby)<br></li>
+</ul>
+<p><strong>Cables de connexió</strong></p>
+<ul>
+<li>1 cable de connexió Molex–Header de 150 mm</li>
+<li>3 cables de connexió Molex–Header de 200 mm</li>
+<li>Un cable micro USB</li>
+</ul>
+<p><strong>Eines i tornilleria</strong></p>
+<ul>
+<li>Un tornavís PH1 (tots els cargols d’aquest kit tenen cap PH1)</li>
+<li>8 cargols M3 × 6 mm amb cap bombat</li>
+<li>4 cargols M3 × 30 mm amb cap bombat</li>
+<li>2 cargols M2 × 6 mm amb cap bombat</li>
+<li>4 femelles M3</li>
+<li>2 separadors de niló (H–H) M2 × 12 mm</li>
+<li>2 separadors metàl·lics (M–H) M3 × 8 mm</li>
+<li>4 separadors (H– …)</li>
+</ul>
+<p><strong></strong><br></p>
+<p><strong>Placa de control</strong><br>El cervell del robot DODO és una Raspberry Pi Pico, un microcontrolador desenvolupat per la fundació Raspberry Pi. Aquesta placa és l’encarregada d’executar els programes escrits en MicroPython i de gestionar la comunicació amb la resta de components del robot.</p>
+<p><br></p>
+<p><img src="../content/resources/20260122121313897SJU/pico-rp2040.jpg" width="1500" height="1000" alt="Rapberry Pi Pico"></p>
+<p>La Raspberry Pi Pico disposa de:</p>
+<ul>
+<li>Un microcontrolador capaç d’executar codi de manera eficient</li>
+<li>Memòria integrada per emmagatzemar el programa</li>
+<li>Pins d’entrada i sortida per connectar sensors i actuador.</li>
+<li>Connexió USB per a la programació i l’alimentació</li>
+<li>En aquest projecte no treballarem directament amb els pins a baix nivell, ja que el control del maquinari es farà mitjançant una llibreria que simplifica aquesta tasca. Tot i així, és important entendre que la placa és l’element que coordina tot el funcionament del robot.</li>
+</ul>
+<p>&nbsp;<br><strong>Shield o placa d’expansió</strong><br>Connectada a la Raspberry Pi Pico, el robot DODO incorpora una placa d’expansió (shield) que facilita la connexió i el control dels diferents components. Aquesta placa actua com a intermediària entre el microcontrolador i els elements externs del robot.</p>
+<p><img src="../content/resources/20260122121313897SJU/07_esquema_conexiones_dodo_lite_1200.png" title="Esquema connexions" width="1200" height="790" alt="Esquema connexions"></p>
+<p>La shield s’encarrega principalment de:</p>
+<ul>
+<li>Controlar els motors mitjançant circuits de potència adequats</li>
+<li>Simplificar la connexió dels sensors</li>
+<li>Gestionar l’alimentació dels diferents components</li>
+<li>Evitar connexions complexes o errors de cablejat</li>
+</ul>
+<p><a href="https://shop.complubot.com/kit-robot-dodo-lite-p-1-50-766/" target="_blank" id="link_0" rel="noopener">Montatge del Robot DODO</a></p>
+<p><img src="../content/resources/20260122121313897SJU/img_1099_2d4f2f7ae5d4d793f3466b131e47ec56_1.jpg" width="800" height="800" alt=""></p><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article><article id="20260122121612293QRU" class="box"> <header class="box-head no-icon"> <h1 class="box-title">Sensors</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="202601221216122899X7" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>Els sensors permeten al robot captar informació del seu entorn. A través d’ells, el robot pot detectar canvis i reaccionar en funció del que percep. El robot DODO disposa de diversos sensors que s’utilitzaran al llarg del projecte.</p>
+<p>De manera general, els sensors permeten:</p>
+<ul>
+<li>Detectar obstacles o distàncies</li>
+<li>Llegir valors de l’entorn</li>
+<li>Obtenir informació necessària per prendre decisions</li>
+</ul>
+<p>Cada sensor proporciona dades que el programa pot interpretar per modificar el comportament del robot. Més endavant es treballarà cada sensor de manera individual, tant des del punt de vista del maquinari com de la programació.</p>
+<p>El robot DODO disposa dels sensors següents:</p>
+<ul>
+<li><strong>Sensor de distància per ultrasons (Bilby):</strong> Permet mesurar la distància fins a un objecte situat davant del robot. S’utilitza habitualment per detectar obstacles i evitar col·lisions.</li>
+<li><strong>Sensor seguidor de línia de tres elements actius (Bilby): </strong>Consta de tres sensors que detecten el contrast entre una línia i el fons. Permet implementar comportaments com el seguiment de línies o la detecció de trajectes.</li>
+<li><strong>Potenciòmetre:</strong> És un sensor analògic que permet llegir un valor variable. Es pot utilitzar, per exemple, per ajustar velocitats, llindars o paràmetres del programa.</li>
+<li><strong>Botons de control: </strong>Permeten detectar pulsacions de l’usuari. Es poden utilitzar per iniciar o aturar programes, canviar modes de funcionament o provar comportaments.&nbsp;</li>
+</ul><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article><article id="202601221217119773WZ" class="box"> <header class="box-head no-icon"> <h1 class="box-title">Actuadors</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260122121711973B7U" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>Els actuadors són els elements que permeten al robot executar accions físiques. A partir de les ordres programades, el robot pot moure’s, mostrar informació o generar respostes visuals.</p>
+<p>Entre els actuadors del robot DODO hi trobem:</p>
+<ul>
+<li>Motors, que permeten el desplaçament del robot.<br></li>
+<li>LEDs o elements lluminosos, per mostrar estats o senyals</li>
+<li>Pantalla, per mostrar informació o missatges</li>
+</ul>
+<p>Els actuadors transformen les decisions preses pel programa en accions visibles i mesurables, fet que permet comprovar immediatament si el codi funciona correctament.</p>
+<p>&nbsp;</p><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article>
+</div></main><div class="nav-buttons"> <a href="../html/bloc-1-material-software-i-entorn.html" title="Anterior" class="nav-button nav-button-left"> <span>Anterior</span></a><a href="../html/1-2-micropython.html" title="Següent" class="nav-button nav-button-right"> <span>Següent</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>

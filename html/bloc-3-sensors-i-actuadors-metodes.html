@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ca" id="exe-node-20260121123842756ZQ9">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>Bloc 3. Sensors i actuadors (Mètodes) | Robòtica amb micropython</title>
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"> </script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css">
+<script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+</head>
+<body class="exe-export exe-web-site" lang="ca">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <nav id="siteNav"> <ul> <li> <a href="../index.html" class="main-node daddy">Bloc 0. Presentació del projecte</a><ul class="other-section"> <li> <a href="../html/0-1-objectius.html" class="no-ch">0.1. Objectius</a>
+</li>
+<li> <a href="../html/0-2-organitzacio-i-metodologia.html" class="no-ch">0.2 Organització i metodologia</a>
+</li>
+<li> <a href="../html/0-3-avaluacio.html" class="no-ch">0.3. Avaluació</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-1-material-software-i-entorn.html" class="daddy">Bloc 1. Material, software i entorn</a><ul class="other-section"> <li> <a href="../html/1-1-el-robot-dodo.html" class="no-ch">1.1. El robot DODO</a>
+</li>
+<li> <a href="../html/1-2-micropython.html" class="no-ch">1.2. Micropython</a>
+</li>
+<li> <a href="../html/1-3-el-nostre-primer-programa.html" class="no-ch">1.3. El nostre primer programa</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-2-llibreria-dodo.html" class="no-ch">Bloc 2. Llibreria Dodo</a>
+</li>
+<li class="active"> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" class="active no-ch">Bloc 3. Sensors i actuadors (Mètodes)</a>
+</li>
+<li> <a href="../html/bloc-4-introduccio-als-metodes.html" class="no-ch">Bloc 4. Introducció als mètodes</a>
+</li>
+<li> <a href="../html/bloc-5-reptes.html" class="no-ch">Bloc 5. Reptes</a>
+</li>
+</ul></nav><main id="20260121123842756ZQ9" class="page"> <header id="header-20260121123842756ZQ9" class="main-header"> <div class="package-header"><h1 class="package-title">Robòtica amb micropython</h1></div>
+<div class="page-header"><h2 class="page-title">Bloc 3. Sensors i actuadors (Mètodes)</h2></div></header><div id="page-content-20260121123842756ZQ9" class="page-content"> <article id="20260122142720437SJH" class="box"> <header class="box-head no-icon"> <h1 class="box-title">Mètodes de la Classe Dodo</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="20260122142720427PB8" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><style>
+.dodo-section{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+  color:#111;
+}
+.dodo-section h1,.dodo-section h2,.dodo-section h3{ margin:1.05em 0 0.45em; }
+.dodo-section p{ margin:0.6em 0; }
+.dodo-section ul{ margin:0.4em 0 0.9em 1.25em; }
+.dodo-section code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:0.95em;
+  background:#f6f6f6;
+  padding:0.08em 0.35em;
+  border-radius:5px;
+}
+.dodo-section .highlight{
+  border:1px solid #ddd;
+  border-radius:10px;
+  overflow:auto;
+  margin:0.85em 0;
+}
+.dodo-section .highlight pre{ margin:0; padding:0.95em 1.05em; }
+.dodo-toc{
+  border:1px solid #ddd;
+  border-radius:10px;
+  background:#fafafa;
+  padding:0.9em 1em;
+  margin:0.8em 0 1.1em;
+}
+.dodo-toc .toc-title{ font-weight:700; margin:0 0 0.55em; }
+.dodo-toc ul{ margin:0.2em 0 0 1.2em; }
+.dodo-toc li{ margin:0.25em 0; }
+.dodo-toc a{ text-decoration:none; }
+.dodo-toc a:hover{ text-decoration:underline; }
+</style>
+<div class="dodo-section">
+<p>En aquest notebook, explorarem els mètodes de la classe <code>dodo</code> de la llibreria <code>libreria-dodo</code>. Aquesta llibreria s'utilitza per controlar el robot Dodo, permetent gestionar motors, LEDs RGB i altres components.</p>
+<!-- ÍNDEX (TOC) --><nav class="dodo-toc" aria-label="Índex de continguts">
+<div class="toc-title">Índex</div>
+<ul>
+<li><a href="#Creació-de-l-objecte-dodo">Creació de l'objecte dodo</a></li>
+<li><a href="#mueve_motor-motor-velocidad">mueve_motor(motor, velocidad)</a></li>
+<li><a href="#para_motor-motor">para_motor(motor)</a></li>
+<li><a href="#enciende_rgb-pos-r-g-b">enciende_rgb(pos, r, g, b)</a></li>
+<li><a href="#apaga_rgb-pos">apaga_rgb(pos)</a></li>
+<li><a href="#buzzer-enciende_buzzer-frecuencia">enciende_buzzer(frecuencia)</a></li>
+<li><a href="#apaga_buzzer">apaga_buzzer()</a></li>
+<li><a href="#lectura_s1">lectura_s1()</a></li>
+<li><a href="#lectura_s2">lectura_s2()</a></li>
+<li><a href="#lectura_s3">lectura_s3()</a></li>
+<li><a href="#lectura_s4">lectura_s4()</a></li>
+<li><a href="#lectura_bateria">lectura_bateria()</a></li>
+<li><a href="#detectar_obstaculo">detectar_obstaculo()</a></li>
+<li><a href="#comprovacio_sensors">Comprovació de sensors</a></li>
+<li><a href="#comprovacio_rgb">Comprovació de RGB</a></li>
+<li><a href="#comprovacio_buzzer">Comprovació de Buzzer</a></li>
+</ul>
+</nav>
+<h2 id="Creació-de-l-objecte-dodo">Creació de l'objecte <code>dodo</code></h2>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #007020;">from</span> <span style="color: #0e84b5; font-weight: bold;">complubot.libreria_dodo</span> <span style="color: #007020;">import</span> <span style="color: #0e84b5; font-weight: bold;">dodo</span>
+
+<span style="color: #60a0b0; font-style: italic;"># Inicialitzar l'objecte del robot</span>
+mi_robot <span style="color: #666666;">=</span> dodo()
+</pre>
+</div>
+<h2 id="mueve_motor-motor-velocidad"><code>mueve_motor(motor, velocidad)</code></h2>
+<p>Aquest mètode permet controlar els motors del robot.</p>
+<ul>
+<li><code>motor</code>: Número del motor (1 a 4 per a Dodo, 1 a 2 per a Dodo Lite).</li>
+<li><code>velocidad</code>: Percentatge de velocitat (-100 a 100).</li>
+</ul>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Mou el motor 1 al 80%</span>
+mi_robot<span style="color: #666666;">.</span>mueve_motor(<span style="color: #40a070;">1</span>, <span style="color: #40a070;">80</span>)
+</pre>
+</div>
+<h2 id="para_motor-motor"><code>para_motor(motor)</code></h2>
+<p>Aquest mètode atura un motor específic.</p>
+<ul>
+<li><code>motor</code>: Número del motor a aturar.</li>
+</ul>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Para el motor 1</span>
+mi_robot<span style="color: #666666;">.</span>para_motor(<span style="color: #40a070;">1</span>)
+</pre>
+</div>
+<h2 id="enciende_rgb-pos-r-g-b"><code>enciende_rgb(pos, r, g, b)</code></h2>
+<p>Aquest mètode encén un LED RGB en una posició específica amb un color determinat.</p>
+<ul>
+<li><code>pos</code>: Número del LED (1 a 5).</li>
+<li><code>r</code>, <code>g</code>, <code>b</code>: Intensitat de cada color (0 a 255).</li>
+</ul>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Encén el LED RGB 1 en vermell</span>
+mi_robot<span style="color: #666666;">.</span>enciende_rgb(<span style="color: #40a070;">1</span>, <span style="color: #40a070;">255</span>, <span style="color: #40a070;">0</span>, <span style="color: #40a070;">0</span>)
+</pre>
+</div>
+<h2 id="apaga_rgb-pos"><code>apaga_rgb(pos)</code></h2>
+<p>Aquest mètode apaga un LED RGB específic.</p>
+<ul>
+<li><code>pos</code>: Número del LED a apagar (1 a 5).</li>
+</ul>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Apaga el LED RGB 1</span>
+mi_robot<span style="color: #666666;">.</span>apaga_rgb(<span style="color: #40a070;">1</span>)
+</pre>
+</div>
+<h2 id="buzzer-enciende_buzzer-frecuencia"><code>enciende_buzzer(frecuencia)</code></h2>
+<p>Aquest mètode encén el buzzer amb una freqüència específica.</p>
+<ul>
+<li><code>frecuencia</code>: Freqüència en Hz.</li>
+</ul>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Encén el buzzer a 440 Hz (nota La)</span>
+mi_robot<span style="color: #666666;">.</span>enciende_buzzer(<span style="color: #40a070;">440</span>)
+</pre>
+</div>
+<h2 id="apaga_buzzer"><code>apaga_buzzer()</code></h2>
+<p>Aquest mètode apaga el buzzer.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Apaga el buzzer</span>
+mi_robot<span style="color: #666666;">.</span>apaga_buzzer()
+</pre>
+</div>
+<h2 id="lectura_s1"><code>lectura_s1()</code></h2>
+<p>Aquest mètode llegeix el sensor S1.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Llegeix el sensor S1</span>
+valor_s1 <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>lectura_s1()
+<span style="color: #007020;">print</span>(valor_s1)
+</pre>
+</div>
+<h2 id="lectura_s2"><code>lectura_s2()</code></h2>
+<p>Aquest mètode llegeix el sensor S2.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Llegeix el sensor S2</span>
+valor_s2 <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>lectura_s2()
+<span style="color: #007020;">print</span>(valor_s2)
+</pre>
+</div>
+<h2 id="lectura_s3"><code>lectura_s3()</code></h2>
+<p>Aquest mètode llegeix el sensor S3.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Llegeix el sensor S3</span>
+valor_s3 <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>lectura_s3()
+<span style="color: #007020;">print</span>(valor_s3)
+</pre>
+</div>
+<h2 id="lectura_s4"><code>lectura_s4()</code></h2>
+<p>Aquest mètode llegeix el sensor S4.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Llegeix el sensor S4</span>
+valor_s4 <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>lectura_s4()
+<span style="color: #007020;">print</span>(valor_s4)
+</pre>
+</div>
+<h2 id="lectura_bateria"><code>lectura_bateria()</code></h2>
+<p>Aquest mètode retorna el nivell de bateria del robot.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Llegeix el nivell de bateria</span>
+bateria <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>lectura_bateria()
+<span style="color: #007020;">print</span>(bateria)
+</pre>
+</div>
+<h2 id="detectar_obstaculo"><code>detectar_obstaculo()</code></h2>
+<p>Aquest mètode detecta si hi ha un obstacle davant del robot.</p>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Detecta obstacle</span>
+obstacle <span style="color: #666666;">=</span> mi_robot<span style="color: #666666;">.</span>detectar_obstaculo()
+<span style="color: #007020;">print</span>(obstacle)
+</pre>
+</div>
+<h2 id="comprovacio_sensors"><code>Comprovació de sensors</code></h2>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Comprovació de sensors</span>
+<span style="color: #007020;">print</span>(mi_robot<span style="color: #666666;">.</span>lectura_s1())
+<span style="color: #007020;">print</span>(mi_robot<span style="color: #666666;">.</span>lectura_s2())
+<span style="color: #007020;">print</span>(mi_robot<span style="color: #666666;">.</span>lectura_s3())
+<span style="color: #007020;">print</span>(mi_robot<span style="color: #666666;">.</span>lectura_s4())
+</pre>
+</div>
+<h2 id="comprovacio_rgb"><code>Comprovació de RGB</code></h2>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Comprovació de RGB</span>
+mi_robot<span style="color: #666666;">.</span>enciende_rgb(<span style="color: #40a070;">1</span>, <span style="color: #40a070;">255</span>, <span style="color: #40a070;">0</span>, <span style="color: #40a070;">0</span>)
+mi_robot<span style="color: #666666;">.</span>enciende_rgb(<span style="color: #40a070;">2</span>, <span style="color: #40a070;">0</span>, <span style="color: #40a070;">255</span>, <span style="color: #40a070;">0</span>)
+mi_robot<span style="color: #666666;">.</span>enciende_rgb(<span style="color: #40a070;">3</span>, <span style="color: #40a070;">0</span>, <span style="color: #40a070;">0</span>, <span style="color: #40a070;">255</span>)
+</pre>
+</div>
+<h2 id="comprovacio_buzzer"><code>Comprovació de Buzzer</code></h2>
+<div class="highlight" style="background: #f0f0f0;">
+<pre style="line-height: 125%;"><span></span><span style="color: #60a0b0; font-style: italic;"># Exemple: Comprovació de Buzzer</span>
+mi_robot<span style="color: #666666;">.</span>enciende_buzzer(<span style="color: #40a070;">440</span>)
+mi_robot<span style="color: #666666;">.</span>apaga_buzzer()
+</pre>
+</div>
+</div><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article>
+</div></main><div class="nav-buttons"> <a href="../html/bloc-2-llibreria-dodo.html" title="Anterior" class="nav-button nav-button-left"> <span>Anterior</span></a><a href="../html/bloc-4-introduccio-als-metodes.html" title="Següent" class="nav-button nav-button-right"> <span>Següent</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>

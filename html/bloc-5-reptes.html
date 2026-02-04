@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ca" id="exe-node-20260121123935923RMJ">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v3.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<title>Bloc 5. Reptes | Robòtica amb micropython</title>
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"> </script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css">
+<script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+</head>
+<body class="exe-export exe-web-site" lang="ca">
+<script>document.body.className+=" js"</script><div class="exe-content exe-export pre-js siteNav-hidden"> <nav id="siteNav"> <ul> <li> <a href="../index.html" class="main-node daddy">Bloc 0. Presentació del projecte</a><ul class="other-section"> <li> <a href="../html/0-1-objectius.html" class="no-ch">0.1. Objectius</a>
+</li>
+<li> <a href="../html/0-2-organitzacio-i-metodologia.html" class="no-ch">0.2 Organització i metodologia</a>
+</li>
+<li> <a href="../html/0-3-avaluacio.html" class="no-ch">0.3. Avaluació</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-1-material-software-i-entorn.html" class="daddy">Bloc 1. Material, software i entorn</a><ul class="other-section"> <li> <a href="../html/1-1-el-robot-dodo.html" class="no-ch">1.1. El robot DODO</a>
+</li>
+<li> <a href="../html/1-2-micropython.html" class="no-ch">1.2. Micropython</a>
+</li>
+<li> <a href="../html/1-3-el-nostre-primer-programa.html" class="no-ch">1.3. El nostre primer programa</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/bloc-2-llibreria-dodo.html" class="no-ch">Bloc 2. Llibreria Dodo</a>
+</li>
+<li> <a href="../html/bloc-3-sensors-i-actuadors-metodes.html" class="no-ch">Bloc 3. Sensors i actuadors (Mètodes)</a>
+</li>
+<li> <a href="../html/bloc-4-introduccio-als-metodes.html" class="no-ch">Bloc 4. Introducció als mètodes</a>
+</li>
+<li class="active"> <a href="../html/bloc-5-reptes.html" class="active no-ch">Bloc 5. Reptes</a>
+</li>
+</ul></nav><main id="20260121123935923RMJ" class="page"> <header id="header-20260121123935923RMJ" class="main-header"> <div class="package-header"><h1 class="package-title">Robòtica amb micropython</h1></div>
+<div class="page-header"><h2 class="page-title">Bloc 5. Reptes</h2></div></header><div id="page-content-20260121123935923RMJ" class="page-content"> <article id="20260203090330861VUY" class="box"> <header class="box-head no-icon"> <h1 class="box-title">&lt;h1 id="Reptes-DODO"&gt;Reptes — Projecte DODO&lt;/h1&gt;</h1>
+<button class="box-toggle box-toggle-on" title="Ocultar/Mostrar contenido"> <span>Ocultar/Mostrar contenido</span></button></header><div class="box-content"> <div id="202602030903308565WO" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json"><div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><style>
+/* Mateix estil que la secció d’exercicis (tipografia system, caixes clares, codi monoespaiat) */
+.dodo-section{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+  color:#111;
+}
+.dodo-section h1,.dodo-section h2,.dodo-section h3{ margin:1.05em 0 0.45em; }
+.dodo-section p{ margin:0.6em 0; }
+.dodo-section ul, .dodo-section ol{ margin:0.35em 0 0.85em 1.25em; }
+.dodo-section code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:0.95em;
+  background:#f6f6f6;
+  padding:0.08em 0.35em;
+  border-radius:5px;
+}
+.dodo-box{
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+  padding:0.9em 1em;
+  margin:1em 0 1.2em;
+}
+.dodo-toc{
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+  padding:0.9em 1em;
+  margin:1em 0 1.3em;
+}
+.dodo-toc ul{ margin:0.3em 0 0 1.2em; }
+.dodo-toc li{ margin:0.25em 0; }
+.dodo-toc a{ text-decoration:none; }
+.dodo-toc a:hover{ text-decoration:underline; }
+
+.dodo-ex{
+  border:1px solid #ddd;
+  border-radius:14px;
+  background:#fff;
+  padding:1em 1.1em;
+  margin:1.2em 0;
+}
+.dodo-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5em 0.9em;
+  margin:0.35em 0 0.85em;
+  font-size:0.95em;
+}
+.dodo-tag{
+  display:inline-block;
+  background:#f6f6f6;
+  border:1px solid #e2e2e2;
+  padding:0.15em 0.6em;
+  border-radius:999px;
+}
+.dodo-subbox{
+  border:1px solid #e1e1e1;
+  border-radius:10px;
+  background:#fafafa;
+  padding:0.75em 0.9em;
+  margin:0.85em 0;
+}
+.dodo-subbox strong{ display:block; margin-bottom:0.25em; }
+.dodo-note{
+  border-left:4px solid #bbb;
+  padding:0.65em 0.9em;
+  background:#f7f7f7;
+  border-radius:8px;
+  margin:0.85em 0;
+}
+</style>
+<div class="dodo-section">
+<p>Aquesta secció recull els 9 reptes del projecte. Cada repte està descrit amb el mateix format per facilitar la lectura: objectiu, actuadors/sensors implicats, mètodes orientatius i els requisits/consignes que s’han de complir.</p>
+<div class="dodo-box">
+<h3>Entrega dels reptes</h3>
+<ul>
+<li>El professor compartirà una <strong>carpeta de Google Drive</strong> per a l’entrega.</li>
+<li>Per a cada repte has de pujar:
+<ul>
+<li>Un <strong>vídeo</strong> on es vegi el robot completant el repte (comportament i resultat).</li>
+<li>L’arxiu de <strong>Thonny</strong> amb el codi (<code>.py</code>).</li>
+</ul>
+</li>
+<li>Posa un nom clar als fitxers (per exemple: <code>Repte4_Linia.py</code>).</li>
+</ul>
+</div>
+<nav class="dodo-toc" aria-label="Índex de reptes"><strong>Índex</strong>
+<ul>
+<li><a href="#repte1">Repte 1 — Infinit</a></li>
+<li><a href="#repte2">Repte 2 — Control distància ultrasons</a></li>
+<li><a href="#repte3">Repte 3 — Empènyer objecte</a></li>
+<li><a href="#repte4">Repte 4 — Seguiment de línia</a></li>
+<li><a href="#repte5">Repte 5 — Seguiment de línia ultrasons</a></li>
+<li><a href="#repte6">Repte 6 — Asteroide i Cercle</a></li>
+<li><a href="#repte7">Repte 7 — Repte amb tres parts</a></li>
+<li><a href="#repte8">Repte 8 — Laberint</a></li>
+<li><a href="#repte9">Repte 9 — Coreografia</a></li>
+</ul>
+</nav><!-- REPTE 1 -->
+<section class="dodo-ex" id="repte1">
+<h2>Repte 1: Infinit</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> descriure una trajectòria que simuli el símbol ∞ de manera cíclica</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> cap</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span> <span class="dodo-tag"><strong>Llibreria DODO:</strong> <code>complubot.libreria_dodo</code></span></div>
+<p>Programa el robot DODO perquè es mogui pel terra descrivint una trajectòria que simuli el símbol de l’infinit (∞). El moviment s’ha d’aconseguir combinant trams rectes i girs cap a l’esquerra i cap a la dreta, coordinant la velocitat dels dos motors per obtenir un desplaçament suau i continu. El símbol s’ha de repetir en bucle.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>El robot ha d’avançar i fer girs cap a esquerra i dreta.</li>
+<li>La trajectòria ha de formar dos bucles consecutius que simulin el símbol ∞.</li>
+<li>El moviment s’ha de repetir de manera contínua amb un bucle infinit (<code>while True</code>).</li>
+<li>S’ha d’utilitzar la llibreria <code>complubot.libreria_dodo</code>.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Defineix funcions de moviment (per exemple: <code>avançar()</code>, <code>girar_dreta()</code>, <code>girar_esquerra()</code>).</li>
+<li>Utilitza variables per a velocitats i temps.</li>
+<li>Controla la durada dels trams amb <code>sleep()</code>.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 2 -->
+<section class="dodo-ex" id="repte2">
+<h2>Repte 2: Control distància ultrasons</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> adaptar moviment i sortides segons la distància a un obstacle</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, LEDs RGB, OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons (pin 13)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code>, <code>(mètode OLED)</code>, <code>(mètode ultrasons)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Programa el robot perquè avanci i adapti el seu comportament segons la distància a un obstacle mesurada amb el sensor d’ultrasons. En funció de la distància, el robot ha de canviar la velocitat, el color dels LEDs RGB i el missatge a la pantalla OLED.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensor d’ultrasons connectat al pin 13.</li>
+<li>Lectura contínua de la distància en centímetres.</li>
+<li>Comportament per llindars:
+<ul>
+<li><strong>&lt; 10 cm:</strong> aturat, LEDs vermells, missatge “Aturat!”.</li>
+<li><strong>&lt; 45 cm:</strong> avanç lent, LEDs grocs.</li>
+<li><strong>≥ 45 cm:</strong> avanç normal, LEDs verds.</li>
+</ul>
+</li>
+<li>Actualització aproximada cada 0,1 s.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Defineix variables per a velocitats i llindars.</li>
+<li>Crea funcions per avançar i aturar.</li>
+<li>Implementa el comportament amb un <code>while True</code>.</li>
+</ul>
+</div>
+<div class="dodo-note"><strong>Nota</strong>
+<p>Si el teu projecte té mètodes concrets per a la lectura d’ultrasons i l’escriptura a OLED, indica’ls en el codi (i usa’ls com a interfície única).</p>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 3 -->
+<section class="dodo-ex" id="repte3">
+<h2>Repte 3: Empènyer objecte</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> detectar un objecte i empènyer-lo fins que deixi de ser detectat</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> digital (pin 14)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(lectura digital pin 14)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>El robot ha d’adoptar un comportament d’aproximació activa: quan detecti un objecte dins d’una zona, ha d’avançar i empènyer-lo durant un temps determinat. Quan l’objecte deixi de ser detectat (surti de la zona), el robot s’ha d’aturar i el programa ha de finalitzar.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensor digital connectat al pin 14.</li>
+<li>Interpretació del sensor:
+<ul>
+<li><code>0</code>: objecte dins la zona.</li>
+<li><code>1</code>: objecte fora de la zona.</li>
+</ul>
+</li>
+<li>Quan es detecta l’objecte: el robot avança recte i empeny durant un temps determinat.</li>
+<li>Quan deixa de ser detectat: el robot s’atura i el programa acaba.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Defineix funcions de moviment per fer el codi llegible.</li>
+<li>Controla la durada de l’empenta amb <code>sleep()</code>.</li>
+<li>El comportament ha de ser totalment autònom (sense intervenció durant l’execució).</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 4 -->
+<section class="dodo-ex" id="repte4">
+<h2>Repte 4: Seguiment de línia</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> seguir una línia negra ajustant la tracció diferencial</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> línia (pins 11, 12, 13)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(lectura pins 11/12/13)</code>, <code>(mètode OLED)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> opcional <code>utime</code> (retard suau)</span></div>
+<p>Programa el robot perquè segueixi una línia negra utilitzant tres sensors de línia digitals (esquerra, centre i dreta). El robot ha d’ajustar la velocitat dels motors per corregir la trajectòria i mantenir-se sobre la línia.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensors de línia:
+<ul>
+<li>Esquerra: pin 11</li>
+<li>Centre: pin 12</li>
+<li>Dreta: pin 13</li>
+</ul>
+</li>
+<li>Comportament segons lectura (E C D):
+<ul>
+<li><code>0 1 0</code> → avanç recte</li>
+<li><code>1 1 0</code> o <code>0 1 1</code> → correcció suau</li>
+<li><code>1 0 0</code> o <code>0 0 1</code> → gir marcat</li>
+<li><code>1 1 1</code> → aturada (marca final)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Mostra els valors dels sensors a la pantalla OLED.</li>
+<li>Inclou un petit retard (per exemple amb <code>sleep()</code>) per suavitzar el moviment.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 5 -->
+<section class="dodo-ex" id="repte5">
+<h2>Repte 5: Seguiment de línia ultrasons</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> seguir línia amb seguretat per obstacle (ultrasons)</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> línia (11,12,13), ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(lectura línia)</code>, <code>(mètode ultrasons)</code>, <code>(mètode OLED)</code></span></div>
+<p>El robot ha de seguir una línia utilitzant els sensors de línia i, al mateix temps, incorporar una funció de seguretat amb el sensor d’ultrasons. Si detecta un obstacle massa proper, s’ha d’aturar automàticament fins que el camí torni a estar lliure.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensors de línia als pins 11, 12 i 13.</li>
+<li>Sensor d’ultrasons frontal.</li>
+<li>Si la distància és inferior a 10 cm:
+<ul>
+<li>El robot s’atura fins que el camí sigui lliure.</li>
+</ul>
+</li>
+<li>Si no hi ha obstacle:
+<ul>
+<li>El robot segueix la línia amb correccions.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Mostra la distància a la pantalla OLED.</li>
+<li>Combina lectura d’ultrasons i sensors de línia dins del mateix bucle.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 6 -->
+<section class="dodo-ex" id="repte6">
+<h2>Repte 6: Asteroide i Cercle</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> seguir línia fins detectar marca final i aturar</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, OLED</span> <span class="dodo-tag"><strong>Sensors:</strong> línia (11,12,13)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(lectura línia)</code>, <code>(mètode OLED)</code></span></div>
+<p>Programa el robot perquè segueixi una línia fins arribar a una zona final representada per una marca ampla, on els tres sensors detecten línia alhora (<code>1 1 1</code>). Aquesta zona representa l’“asteroide” i indica el final del recorregut. En detectar-la, el robot s’ha d’aturar completament.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensors de línia als pins 11, 12 i 13.</li>
+<li>Seguiment de línia amb correccions segons l’estat dels sensors.</li>
+<li>Condició d’arribada: <code>1 1 1</code> → aturada completa.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Mostra els valors dels sensors a l’OLED.</li>
+<li>Controla els motors mitjançant tracció diferencial.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 7 -->
+<section class="dodo-ex" id="repte7">
+<h2>Repte 7: Repte amb tres parts</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> detectar obstacles i reaccionar de manera progressiva</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, LEDs RGB</span> <span class="dodo-tag"><strong>Sensors:</strong> ultrasons</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code>, <code>(mètode ultrasons)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Aquest repte es divideix en tres parts progressives relacionades amb la detecció d’obstacles i el control del moviment. L’objectiu és construir un comportament cada vegada més complet, reutilitzant funcions i variables.</p>
+<div class="dodo-subbox"><strong>Part 7.1 — Aturada de seguretat</strong>
+<p>El robot avança mentre no detecta cap obstacle a menys d’un llindar determinat. Si el detecta, s’atura.</p>
+<ul>
+<li>Inclou un llindar de distància i una lectura contínua.</li>
+<li>Quan hi ha obstacle, atura els motors.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Part 7.2 — Esquiva amb LEDs</strong>
+<p>Quan detecta un obstacle, el robot fa una maniobra d’esquiva i els LEDs indiquen l’estat.</p>
+<ul>
+<li>En detectar obstacle: retrocedeix, gira i reprèn l’avanç.</li>
+<li>Els LEDs han d’indicar com a mínim dos estats: “segur” i “obstacle”.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Part 7.3 — Comportament complet</strong>
+<p>El robot combina avanç, esquiva i indicació visual de manera autònoma i contínua.</p>
+<ul>
+<li>El comportament ha d’estar dins d’un bucle que permeti funcionar contínuament.</li>
+<li>Organitza el codi en funcions reutilitzables.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 8 -->
+<section class="dodo-ex" id="repte8">
+<h2>Repte 8: Laberint</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> recórrer un laberint amb decisions basades en sensors</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors</span> <span class="dodo-tag"><strong>Sensors:</strong> paret (pins 12, 14, 13)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>(lectura pins 12/14/13)</code></span> <span class="dodo-tag"><strong>Estructures:</strong> <code>if</code> / <code>else</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Programa el robot perquè recorri un laberint utilitzant tres sensors digitals de detecció de paret (esquerra, frontal i dreta). El robot ha de prendre decisions segons la presència o absència de paret. Quan detecti la sortida (sense paret als tres sensors), s’ha d’aturar i el programa ha de finalitzar.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Sensors:
+<ul>
+<li>Esquerra: pin 12</li>
+<li>Frontal: pin 14</li>
+<li>Dreta: pin 13</li>
+</ul>
+</li>
+<li>Regles de decisió basades en <code>if</code>/<code>else</code>.</li>
+<li>Condició de sortida: no hi ha paret als tres sensors → aturada i final del programa.</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Organitza el moviment en funcions.</li>
+<li>Inclou pauses perquè els girs siguin efectius (<code>sleep()</code>).</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+<!-- REPTE 9 -->
+<section class="dodo-ex" id="repte9">
+<h2>Repte 9: Coreografia</h2>
+<div class="dodo-meta"><span class="dodo-tag"><strong>Objectiu:</strong> executar una seqüència coordinada de moviment, llums i so</span> <span class="dodo-tag"><strong>Actuadors:</strong> motors, LEDs RGB, buzzer</span> <span class="dodo-tag"><strong>Sensors:</strong> botó (pin 15)</span> <span class="dodo-tag"><strong>Mètodes:</strong> <code>mueve_motor(motor, velocidad)</code>, <code>para_motor(motor)</code>, <code>enciende_rgb(pos, r, g, b)</code>, <code>apaga_rgb(pos)</code>, <code>enciende_buzzer(frecuencia)</code>, <code>apaga_buzzer()</code>, <code>(lectura botó pin 15)</code></span> <span class="dodo-tag"><strong>Altres llibreries:</strong> <code>utime</code> (per <code>sleep</code>)</span></div>
+<p>Programa el robot perquè executi una coreografia que combini moviments, llums RGB i so. La coreografia només s’ha d’iniciar quan l’usuari premi un botó. En acabar, el robot s’ha d’aturar, apagar els LEDs i quedar esperant una nova pulsació.</p>
+<div class="dodo-subbox"><strong>Requisits</strong>
+<ul>
+<li>Botó connectat al pin 15.</li>
+<li>La coreografia ha de tenir diversos passos temporitzats que incloguin:
+<ul>
+<li>Moviment dels motors.</li>
+<li>Canvi de color dels LEDs.</li>
+<li>Emissió de sons.</li>
+</ul>
+</li>
+<li>En acabar:
+<ul>
+<li>El robot s’atura.</li>
+<li>Els LEDs s’apaguen.</li>
+<li>El programa espera un nou pols del botó.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="dodo-subbox"><strong>Consignes</strong>
+<ul>
+<li>Separa el codi en funcions (per exemple: <code>espera_boto()</code>, <code>coreografia()</code>, <code>neteja_final()</code>).</li>
+<li>Controla la durada de cada pas amb <code>sleep()</code>.</li>
+</ul>
+</div>
+<p><a href="#Reptes-DODO">Torna a l’índex</a></p>
+</section>
+</div><p class="clearfix"></p></div>
+            </div></div></div></div>
+</div></article>
+</div></main><div class="nav-buttons"> <a href="../html/bloc-4-introduccio-als-metodes.html" title="Anterior" class="nav-button nav-button-left"> <span>Anterior</span></a><span class="nav-button nav-button-right" aria-hidden="true"> <span>Següent</span></span>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="license">creative commons: attribution - share alike 4.0</a></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(nueva ventana)</span></span></a></p>
+</body>
+</html>
